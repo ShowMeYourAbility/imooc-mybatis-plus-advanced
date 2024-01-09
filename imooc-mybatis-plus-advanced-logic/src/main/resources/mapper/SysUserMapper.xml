@@ -2,25 +2,21 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.llmcu.imooc.mybatisplus.basic.environment.mapper.SysUserMapper">
+<mapper namespace="com.llmcu.imooc.mybatisplus.advanced.logic.mapper.SysUserMapper">
 
-    <resultMap id="BaseResultMap" type="com.llmcu.imooc.mybatisplus.basic.environment.entity.SysUser">
+    <resultMap id="BaseResultMap" type="com.llmcu.imooc.mybatisplus.advanced.logic.entity.SysUser">
             <id property="id" column="ID" jdbcType="BIGINT"/>
             <result property="name" column="NAME" jdbcType="VARCHAR"/>
             <result property="age" column="AGE" jdbcType="OTHER"/>
             <result property="email" column="EMAIL" jdbcType="VARCHAR"/>
+            <result property="deleted" column="DELETED" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         ID,NAME,AGE,
-        EMAIL
+        EMAIL,DELETED
     </sql>
-    <select id="selectAll2" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from sys_user
-        ${ew.customSqlSegment}
-    </select>
+
     <select id="selectAllById" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
