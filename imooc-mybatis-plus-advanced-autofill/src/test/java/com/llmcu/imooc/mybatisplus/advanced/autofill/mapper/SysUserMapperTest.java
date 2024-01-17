@@ -19,7 +19,7 @@ class SysUserMapperTest {
 
     @Test
     @Rollback
-    public void delete() {
+    public void insert() {
         SysUser sysUser = new SysUser().setName("sam").setAge(36).setEmail("dd");
         sysUserMapper.insert(sysUser);
         SysUser sysUser1 = sysUserMapper.selectOne(Wrappers.lambdaQuery(SysUser.class).eq(SysUser::getName, "sam"));
